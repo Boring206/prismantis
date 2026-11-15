@@ -3204,7 +3204,7 @@ test('/prismantis setup opens a pane in the terminal: arrows move through the st
   expect(panes).toEqual(['open prismantis-setup', 'close prismantis-setup'])
   expect(toasts.at(-1)).toBe(`Tool output set to quiet. ${SETUP_ESSENTIALS_DONE}`)
   expect((await setupRun($, 'setup more')).text).toBe(SETUP_PANE_OPENED)
-  expect(await pane.find({ type: 'Text', text: /More styles 1\/17: Diffs/ })).toBeTruthy()
+  expect(await pane.find({ type: 'Text', text: /More styles 1\/18: Diffs/ })).toBeTruthy()
   for (const [step, value] of [['diffs', 'bar'], ['tools', 'tree-bold'], ['headings', 'uppercase'], ['table-layout', 'auto'], ['tasks', 'progress'], ['lists', 'dash'], ['copy', 'hover'], ['labels', 'small'], ['clock', '24h'], ['pies', 'bars'], ['status-matrix', 'color'], ['test-report', 'report'], ['bench-table', 'trend']] as const) await pane.press({ key: `pick:${step}:${value}` })
   expect(await pane.find({ type: 'Text', text: /More styles 14\/18: Schema/ })).toBeTruthy()
   await pane.press({ key: 'pick:schema-table:full' })
